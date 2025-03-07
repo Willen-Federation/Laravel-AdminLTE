@@ -26,7 +26,7 @@ docker compose exec app chmod -R 777 storage bootstrap/cache
 ```bash
 docker-compose up -d
 ```
-http://localhost[http://localhost]
+http://localhost
 
 
 ## Container structures
