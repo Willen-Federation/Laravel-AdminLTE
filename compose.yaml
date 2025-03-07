@@ -36,7 +36,8 @@ services:
       - type: bind
         source: ./src
         target: /workspace
-
+    platform: linux/x86_64
+    
   db:
     build:
       context: .

@@ -15,8 +15,11 @@ ARG UID=1000
 ARG GID=1000
 
 COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+RUN apt-get update
+RUN apt-get install -y nodejs
 
-# hadolint ignore=DL3008
 RUN <<EOF
   apt-get update
   apt-get -y install --no-install-recommends \
@@ -27,12 +30,13 @@ RUN <<EOF
     libicu-dev \
     libonig-dev \
     default-mysql-client
-  locale-gen en_US.UTF-8
-  localedef -f UTF-8 -i en_US en_US.UTF-8
-  docker-php-ext-install \
+    locale-gen en_US.UTF-8
+    localedef -f UTF-8 -i en_US en_US.UTF-8
+    docker-php-ext-install \
     intl \
     pdo_mysql \
     zip \
+    mysqli \
     bcmath
   # permission denied bind mount in Linux environment
   groupadd --gid $GID phper
