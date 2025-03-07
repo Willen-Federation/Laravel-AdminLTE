@@ -3,19 +3,19 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>ダッシュボード</h1>
+    <h1>Dashboard</h1>
 @stop
 
 @section('content')
-    <p>ここがコンテンツ部分です</p>
+    <p>Contents</p>
 @stop
 
 @section('css')
-    {{-- ページごとCSSの指定
+    {{-- CSS
     <link rel="stylesheet" href="/css/xxx.css">
     --}}
 @stop
 
 @section('js')
-    <script> console.log('ページごとJSの記述'); </script>
+    <script> console.log('JS'); </script>
 @stop
