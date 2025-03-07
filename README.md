@@ -1,4 +1,4 @@
-# docker-laravel 🐳
+# Laravel-AdminLTE
 
 ## How to Start 
 
