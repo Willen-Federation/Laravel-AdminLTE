@@ -54,7 +54,7 @@ FROM base AS development
 
 COPY ./infra/docker/php/php.development.ini /usr/local/etc/php/php.ini
 
-USER phper
+
 
 FROM base AS development-xdebug
 
@@ -65,14 +65,14 @@ EOF
 
 COPY ./infra/docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-USER phper
+
 
 FROM base AS deploy
 
 COPY ./infra/docker/php/php.deploy.ini /usr/local/etc/php/php.ini
 COPY --chown=phper:phper ./src /workspace
 
-USER phper
+
 
 RUN <<EOF
   composer install --quiet --no-interaction --no-ansi --no-dev --no-scripts --no-progress --prefer-dist
